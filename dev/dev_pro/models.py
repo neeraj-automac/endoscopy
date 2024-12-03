@@ -31,4 +31,4 @@ class UserDetails(models.Model):
     otp = models.IntegerField(blank=True,null=True)
 
     def __str__(self):
-        return self.user_id
+        return str(self.user_id)
