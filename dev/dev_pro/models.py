@@ -12,7 +12,7 @@ class Patientsdetails(models.Model):
     referred = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.patient_name
+        return str(self.patient_name)
 
 
 class Patientreports(models.Model):
@@ -22,12 +22,13 @@ class Patientreports(models.Model):
     time = models.TimeField()
 
     def __str__(self):
-        return self.patient_details_id
+        return str(self.patient_details_id)
 
 
 class UserDetails(models.Model):
     user_id = models.OneToOneField(User,on_delete=models.CASCADE)
     mobile_no = models.CharField(max_length=15,null=False)
+    speciality = models.CharField(max_length=50,blank=False)
     otp = models.IntegerField(blank=True,null=True)
 
     def __str__(self):
