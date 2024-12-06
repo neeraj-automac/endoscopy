@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Patientsdetails(models.Model):
+    objects = None
+    DoesNotExist = None
     patient_name = models.CharField(max_length=100,null=False)
     age = models.IntegerField(null=False)
     gender = models.CharField(max_length=15,null=False)
@@ -16,8 +18,10 @@ class Patientsdetails(models.Model):
 
 
 class Patientreports(models.Model):
+    def nameFile(instance, filename):
+        return '/'.join(['endo_files', str(instance.patient_details_id), filename])
     patient_details_id = models.ForeignKey(Patientsdetails,on_delete=models.CASCADE,related_name="Patient_reports")
-    report_file = models.FileField()
+    report_file = models.FileField(upload_to=nameFile,blank=True)
     date = models.DateField()
     time = models.TimeField()
 
@@ -33,3 +37,4 @@ class UserDetails(models.Model):
 
     def __str__(self):
         return str(self.user_id)
+
