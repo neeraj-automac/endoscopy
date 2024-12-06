@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'dev_pro',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,6 +51,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Frontend address
+    "http://192.168.0.129",  # Add other allowed origins if needed
 ]
 
 ROOT_URLCONF = 'dev.urls'
@@ -83,8 +90,8 @@ DATABASES = {
         'NAME': 'endoscopy_db',  # change it databasename
         'USER': 'postgres',  # change it database username
         'PASSWORD': '6304882347',  # change user database password
-        'HOST': '192.168.29.185',
-         # 'HOST': '192.168.0.129',
+        # 'HOST': '192.168.29.185',
+         'HOST': '192.168.0.129',
         'PORT': '5432',
     }
 }
