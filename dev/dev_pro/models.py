@@ -32,6 +32,7 @@ class Patientreports(models.Model):
 class UserDetails(models.Model):
     user_id = models.OneToOneField(User,on_delete=models.CASCADE)
     mobile_no = models.CharField(max_length=15,null=False)
+    speciality = models.CharField(max_length=50,blank=False)
     otp = models.IntegerField(blank=True,null=True)
 
     def __str__(self):
