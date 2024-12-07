@@ -86,6 +86,7 @@ WSGI_APPLICATION = 'dev.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'endoscopy_db',  # change it databasename
         'USER': 'postgres',  # change it database username
         'PASSWORD': '6304882347',  # change user database password
