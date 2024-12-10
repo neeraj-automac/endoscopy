@@ -138,13 +138,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATICFILES_DIRS=[
-#     os.path.join(BASE_DIR, 'build/static'),
-#
-# ]
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR, 'static'),
+
+]
 # print('STATICFILES_DIRS',STATICFILES_DIRS)
 #
-STATIC_ROOT= os.path.join(BASE_DIR, 'build/static') # settings affected at Deployment
+# STATIC_ROOT= os.path.join(BASE_DIR, 'static') # settings affected at Deployment
+STATIC_ROOT= os.path.join('/home/pi/endo/endoscopy/static') # settings affected at Deployment
 
 
 MEDIA_URL = '/media/'
