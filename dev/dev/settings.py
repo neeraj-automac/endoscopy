@@ -66,7 +66,7 @@ ROOT_URLCONF = 'dev.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,"build")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,8 +90,8 @@ DATABASES = {
         'NAME': 'endoscopy_db',  # change it databasename
         'USER': 'postgres',  # change it database username
         'PASSWORD': '6304882347',  # change user database password
-        # 'HOST': '192.168.29.185',
-         'HOST': '192.168.0.129',
+        'HOST': '192.168.29.185',
+         # 'HOST': '192.168.0.129',
         'PORT': '5432',
     }
 }
@@ -138,6 +138,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR, 'build/static'),
+
+]
+print('STATICFILES_DIRS',STATICFILES_DIRS)
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 
